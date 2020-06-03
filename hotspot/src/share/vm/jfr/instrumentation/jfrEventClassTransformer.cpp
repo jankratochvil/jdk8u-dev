@@ -629,6 +629,10 @@ static u2 position_stream_after_cp(ClassFileStream* stream) {
         }
       }
       continue;
+      case JVM_CONSTANT_Dynamic:
+        stream->skip_u2_fast(1);
+        stream->skip_u2_fast(1);
+      continue;
       default:
         assert(false, "error in skip logic!");
         break;
